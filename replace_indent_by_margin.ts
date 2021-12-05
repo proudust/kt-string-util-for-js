@@ -31,10 +31,9 @@ export function replaceIndentByMargin(
     const firstNonWhitespaceIndex = line
       .split("")
       .findIndex((x) => /\S/.test(x));
-    if (
-      firstNonWhitespaceIndex !== -1 &&
-      line.startsWith(marginPrefix, firstNonWhitespaceIndex)
-    ) {
+
+    if (firstNonWhitespaceIndex === -1) return;
+    if (line.startsWith(marginPrefix, firstNonWhitespaceIndex)) {
       return line.substr(firstNonWhitespaceIndex + marginPrefix.length);
     }
   });
@@ -54,9 +53,12 @@ export function reindent(
   const lastIndex = lines.length - 1;
   return lines
     .map((value, index) => {
-      if ((index === 0 || index === lastIndex) && !value) return "";
+      if ((index === 0 || index === lastIndex) && /^\s+$/.test(value)) {
+        return "";
+      }
       const cuted = indentCutFunction(value);
-      return (cuted && indentAddFunction(cuted)) || value;
+      return (cuted && indentAddFunction(cuted)) ?? value;
     })
+    .filter((x) => x)
     .join("\n");
 }
