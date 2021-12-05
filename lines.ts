@@ -4,7 +4,7 @@
  * Example:
  *
  * ```ts
- * import { lines } from "https://raw.githubusercontent.com/proudust/kt-string-util-for-js/$VERSION/lines.ts";
+ * import { lines } from "https://raw.githubusercontent.com/proudust/kt-string-util-for-js/$VERSION/mod.ts";
  *
  * const string = "first line\rsecond line\nthird line\r\nlast line";
  * const array = lines(string);

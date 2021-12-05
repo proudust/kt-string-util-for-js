@@ -23,6 +23,8 @@ Deno.test({
   name: "[lines] single line",
   fn() {
     const string = "single line";
-    assertEquals([string], lines(string));
+    const array = lines(string);
+
+    assertEquals(array, [string]);
   },
 });
