@@ -53,12 +53,12 @@ export function reindent(
   const lastIndex = lines.length - 1;
   return lines
     .map((value, index) => {
-      if ((index === 0 || index === lastIndex) && /^\s+$/.test(value)) {
-        return "";
+      if ((index === 0 || index === lastIndex) && /^\s*$/.test(value)) {
+        return undefined;
       }
       const cuted = indentCutFunction(value);
       return (cuted && indentAddFunction(cuted)) ?? value;
     })
-    .filter((x) => x)
+    .filter((x) => x != null)
     .join("\n");
 }
