@@ -1,4 +1,4 @@
-import { minOf } from "https://deno.land/std@0.117.0/collections/mod.ts";
+import { minOf } from "../deps.ts";
 import { lines } from "./lines.ts";
 import { getIndentFunction, reindent } from "./replace_indent_by_margin.ts";
 

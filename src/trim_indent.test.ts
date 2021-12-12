@@ -1,5 +1,4 @@
-import { maxOf, minOf } from "https://deno.land/std@0.117.0/collections/mod.ts";
-import { assertEquals } from "https://deno.land/std@0.117.0/testing/asserts.ts";
+import { assertEquals, maxOf, minOf } from "../deps.ts";
 import { lines } from "./lines.ts";
 import { trimIndent } from "./trim_indent.ts";
 
